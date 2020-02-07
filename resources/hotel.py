@@ -49,8 +49,10 @@ class Hotel(Resource):
 			return newHotel, 200
 		return {'message': 'Hotel not found!'}, 404
 
-	def delete(self):
-		pass
+	def delete(self, idHotel):
+		global hoteis
+		hoteis = [hotel for hotel in hoteis if hotel['idHotel'] != idHotel]
+		return {'message': 'Hotel deleted.'}
 
 
 class Hoteis(Resource):
